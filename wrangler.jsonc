@@ -6,13 +6,12 @@
   "compatibility_flags": ["nodejs_compat", "global_fetch_strictly_public"],
   "observability": { "enabled": true },
   // Not secrets: the sheet only needs "anyone with the link can view".
-  // Leave SHEET_ID empty to use the bundled csv/ files in local dev.
+  // SHEET_ID must be set for production: the csv/ fallback is only bundled in dev.
   "vars": {
-    "SHEET_ID": "",
+    "SHEET_ID": "1r1sTQGrcuropIE_wlD7Nv3UXYqio-3bN3gfo6IsABog",
     "CACHE_TTL_SECONDS": "300",
     // Footer links. Leave empty to hide them; set full https:// URLs to show them.
-    // The venue has no Instagram account yet, so its icon stays hidden until this is set.
-    "INSTAGRAM_URL": "",
+    "INSTAGRAM_URL": "https://www.instagram.com/bella_vista_caferesto/",
     "MAPS_URL": "https://maps.app.goo.gl/opYPXY3vWRQANcw18"
   }
 }

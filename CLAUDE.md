@@ -11,7 +11,7 @@ Contexto de negocio y decisiones: `info/proyecto.md`. Contenido de la carta: `in
 - **TDD estricto**: tests primero (vitest), luego implementación.
 - Herramientas: preferir `bat`, `rg`, `fd`, `eza` sobre `cat`, `grep`, `find`, `ls` (varias no están instaladas en esta máquina; usar las herramientas Read/Glob del agente si faltan).
 - No desplegar, crear recursos en Cloudflare ni commitear/pushear sin que el usuario lo pida.
-- No inventar datos de contacto (Instagram, dirección). Los enlaces opcionales solo se muestran si su variable está definida.
+- No inventar datos de contacto. Los enlaces opcionales del footer solo se muestran si su variable está definida.
 
 ## Stack
 
@@ -56,9 +56,9 @@ páginas Astro SSR
 
 | Variable | Uso |
 |---|---|
-| `SHEET_ID` | ID de la planilla. En local, en `.dev.vars` (ignorado por git). |
+| `SHEET_ID` | ID de la planilla. Está en `wrangler.jsonc` (no es secreto) y en local puede sobrescribirse con `.dev.vars` (ignorado por git). Vacío = usa los CSV de `csv/`, solo en dev. |
 | `CACHE_TTL_SECONDS` | TTL de la caché. |
-| `INSTAGRAM_URL` | Opcional. El ícono del footer aparece solo si es una URL http(s) válida. Hoy vacía: el local aún no tiene Instagram. |
+| `INSTAGRAM_URL` | Opcional. El ícono del footer aparece solo si es una URL http(s) válida. Definida: `https://www.instagram.com/bella_vista_caferesto/`. |
 | `MAPS_URL` | Opcional. Enlace "Abrir en Maps" del footer: `https://maps.app.goo.gl/opYPXY3vWRQANcw18`. |
 
 `.env.example` no se pudo actualizar por permisos del entorno; la documentación de las variables nuevas está en el README y en `wrangler.jsonc`.
@@ -97,12 +97,12 @@ Seguimiento de lo hecho. Agregar una línea por cambio relevante.
 - [x] 3. UI de una sola página, con validación de pestañas renombradas.
 - [x] Carta dividida en páginas por grupo (`/desayunos`, `/comidas`, `/postres`, `/bebidas`) con portada en `/`, footer solo con íconos y carga de pestañas por subconjunto. 105 tests, `astro check` y build en verde.
 - [x] `referencia/` (PDF y fotos) movida fuera del repo a `../referencia/`.
+- [x] Instagram del local (`@bella_vista_caferesto`) agregado al footer y `SHEET_ID` fijado en `wrangler.jsonc` para producción.
 - [ ] 4. Deploy a Cloudflare (requiere `wrangler login`).
 - [x] Repositorio en GitHub (`AgustinBenedetti/Bellavista`, público) y primer push a `main`.
 
 ## Pendientes
 
 - **Precios a verificar en la planilla:** chocolatada (~$4.000), pizza sin TACC (sin precio cargado, quizá un adicional), Rogel (~$6.800), Selva Negra (~$7.500), omelette del menú kids ($11.000 o $12.000). Los vinos no tienen precio en la carta original.
-- **Instagram:** definir `INSTAGRAM_URL` cuando exista la cuenta.
 - **Notas de la carta física sin campo en la planilla:** "(consulte por más tortas!)" y "(consulte por tortas sin TACC!)".
 - **No verificado:** contraste medido con herramienta, desplazamiento de layout al cargar fuentes, caché y despliegue reales en Cloudflare.
