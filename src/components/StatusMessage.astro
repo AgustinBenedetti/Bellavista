@@ -1,0 +1,54 @@
+---
+interface Props {
+  title: string;
+  /** Where the button goes; defaults to the current page so "Reintentar" reloads it. */
+  actionHref?: string;
+  actionLabel?: string;
+}
+const { title, actionHref = Astro.url.pathname, actionLabel = 'Reintentar' } = Astro.props;
+---
+
+<section class="status" aria-labelledby="status-title">
+  <h2 class="status__title" id="status-title">{title}</h2>
+  <p class="status__text"><slot /></p>
+  <a class="status__retry" href={actionHref}>{actionLabel}</a>
+</section>
+
+<style>
+  .status {
+    padding: 2rem 0 1rem;
+    text-align: center;
+  }
+
+  .status__title {
+    font-family: var(--font-title);
+    font-size: 1.9rem;
+    font-weight: 500;
+    line-height: 1.2;
+  }
+
+  .status__text {
+    max-width: 30rem;
+    margin: 0.75rem auto 1.25rem;
+    color: var(--graphite);
+  }
+
+  .status__retry {
+    display: inline-flex;
+    align-items: center;
+    min-height: 2.75rem;
+    padding: 0 1.4rem;
+    background: var(--ink);
+    color: var(--paper);
+    font-family: var(--font-ui);
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    text-decoration: none;
+  }
+
+  .status__retry:hover {
+    background: var(--forest-deep);
+  }
+</style>

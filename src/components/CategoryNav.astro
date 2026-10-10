@@ -1,0 +1,130 @@
+---
+import type { NavEntry } from '../lib/site';
+
+interface Props {
+  entries: NavEntry[];
+}
+const { entries } = Astro.props;
+---
+
+<nav class="catnav" aria-label="Categorías de esta sección" data-catnav>
+  <ul class="catnav__list">
+    {
+      entries.map((entry) => (
+        <li>
+          <a class="catnav__link" href={entry.href}>
+            {entry.label}
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+</nav>
+
+<style>
+  /* Secondary row: sticks right under the group nav and lists the page's categories. */
+  .catnav {
+    position: sticky;
+    top: var(--nav-h);
+    z-index: 20;
+    height: var(--chips-h);
+    background: var(--paper);
+    border-bottom: 2px solid var(--ink);
+  }
+
+  .catnav__list {
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    gap: 0.5rem;
+    padding: 0 var(--gutter);
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x proximity;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .catnav__list::-webkit-scrollbar {
+    display: none;
+  }
+
+  .catnav__link {
+    display: flex;
+    align-items: center;
+    min-height: 2.25rem;
+    padding: 0 0.9rem;
+    font-family: var(--font-ui);
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    text-decoration: none;
+    white-space: nowrap;
+    color: var(--ink);
+    border: 1.5px solid var(--ink);
+    border-radius: 999px;
+    scroll-snap-align: center;
+  }
+
+  .catnav__link:hover {
+    background: var(--mint);
+  }
+
+  .catnav__link[aria-current='true'] {
+    background: var(--ink);
+    color: var(--paper);
+  }
+
+  .catnav__link:focus-visible {
+    outline-offset: 2px;
+  }
+
+  @media (min-width: 48rem) {
+    .catnav__list {
+      justify-content: center;
+    }
+  }
+</style>
+
+<script>
+  // Scroll-spy: highlights the category nearest the middle of the viewport.
+  // Without JS the nav still works as plain anchor links.
+  const nav = document.querySelector<HTMLElement>('[data-catnav]');
+  const sections = document.querySelectorAll<HTMLElement>('[data-category]');
+
+  if (nav && sections.length > 0 && 'IntersectionObserver' in window) {
+    const links = new Map<string, HTMLAnchorElement>();
+    nav.querySelectorAll<HTMLAnchorElement>('a[href^="#"]').forEach((link) => {
+      links.set(link.hash.slice(1), link);
+    });
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+    let activeId = '';
+
+    const setActive = (id: string) => {
+      if (id === activeId) return;
+      activeId = id;
+      links.forEach((link, key) => {
+        if (key === id) link.setAttribute('aria-current', 'true');
+        else link.removeAttribute('aria-current');
+      });
+      const link = links.get(id);
+      const list = link?.closest('ul');
+      if (link && list) {
+        const left = link.offsetLeft - (list.clientWidth - link.offsetWidth) / 2;
+        list.scrollTo({ left, behavior: reduceMotion.matches ? 'auto' : 'smooth' });
+      }
+    };
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) setActive(entry.target.id);
+        }
+      },
+      { rootMargin: '-40% 0px -55% 0px' },
+    );
+    sections.forEach((section) => observer.observe(section));
+  }
+</script>

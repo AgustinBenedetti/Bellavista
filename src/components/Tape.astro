@@ -1,0 +1,35 @@
+---
+// Washi-tape accent. The parent must be `position: relative`.
+interface Props {
+  position: 'top-left' | 'top-right';
+}
+const { position } = Astro.props;
+---
+
+<span class="tape" data-position={position} aria-hidden="true"></span>
+
+<style>
+  .tape {
+    position: absolute;
+    z-index: 2;
+    width: 6rem;
+    height: 1.75rem;
+    background:
+      repeating-linear-gradient(90deg, transparent 0 6px, rgb(255 255 255 / 0.22) 6px 7px),
+      rgb(169 189 232 / 0.92);
+    clip-path: polygon(0 0, 100% 0, 97% 25%, 100% 50%, 97% 75%, 100% 100%, 0 100%, 3% 75%, 0 50%, 3% 25%);
+    pointer-events: none;
+  }
+
+  [data-position='top-left'] {
+    top: 0.45rem;
+    left: -1.6rem;
+    transform: rotate(-38deg);
+  }
+
+  [data-position='top-right'] {
+    top: 0.5rem;
+    right: -1.6rem;
+    transform: rotate(38deg);
+  }
+</style>

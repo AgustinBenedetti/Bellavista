@@ -1,0 +1,72 @@
+---
+import Logo from './Logo.astro';
+import Sprig from './Sprig.astro';
+import Tape from './Tape.astro';
+
+interface Props {
+  /** `home` is the landing masthead (h1 + tagline); `compact` is the small logo linking home. */
+  variant?: 'home' | 'compact';
+}
+const { variant = 'home' } = Astro.props;
+---
+
+<header class="site-header" data-variant={variant}>
+  <Tape position="top-left" />
+  <Tape position="top-right" />
+  <Sprig variant="header-left" />
+  <Sprig variant="header-right" />
+  {
+    variant === 'home' ? (
+      <>
+        <h1 class="site-header__title" aria-label="Bella Vista café y resto, carta">
+          <Logo />
+        </h1>
+        <p class="site-header__tagline">nuestra carta</p>
+      </>
+    ) : (
+      <a class="site-header__home" href="/" aria-label="Bella Vista café y resto, ir al inicio">
+        <Logo size="sm" />
+      </a>
+    )
+  }
+</header>
+
+<style>
+  .site-header {
+    position: relative;
+    overflow: hidden;
+    padding: 2.25rem var(--gutter) 0.5rem;
+    text-align: center;
+  }
+
+  .site-header[data-variant='compact'] {
+    padding-top: 1.5rem;
+    padding-bottom: 1rem;
+  }
+
+  .site-header__title {
+    position: relative;
+    z-index: 1;
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 400;
+  }
+
+  .site-header__home {
+    position: relative;
+    z-index: 1;
+    display: inline-block;
+    text-decoration: none;
+    border-radius: 50%;
+  }
+
+  .site-header__tagline {
+    position: relative;
+    z-index: 1;
+    margin-top: 0.25rem;
+    font-family: var(--font-script);
+    font-size: 2.25rem;
+    line-height: 1.2;
+    color: var(--forest-deep);
+  }
+</style>

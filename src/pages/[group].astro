@@ -1,0 +1,107 @@
+---
+import { env } from 'cloudflare:workers';
+import CategoryNav from '../components/CategoryNav.astro';
+import CategorySection from '../components/CategorySection.astro';
+import GroupNav from '../components/GroupNav.astro';
+import NotFoundPage from '../components/NotFoundPage.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+import SiteHeader from '../components/SiteHeader.astro';
+import StatusMessage from '../components/StatusMessage.astro';
+import Base from '../layouts/Base.astro';
+import { GROUPS, loadCategories, parseTtlSeconds, resolveGroup, type MenuCategory } from '../lib/menu';
+import { buildGroupNav, buildNav } from '../lib/site';
+
+const group = resolveGroup(Astro.params.group);
+const { cfContext } = Astro.locals;
+
+let categories: MenuCategory[] = [];
+let failed = false;
+if (!group) {
+  Astro.response.status = 404;
+} else {
+  try {
+    categories = await loadCategories(group.categories, {
+      sheetId: env.SHEET_ID,
+      ttlSeconds: parseTtlSeconds(env.CACHE_TTL_SECONDS),
+      waitUntil: cfContext ? (promise) => cfContext.waitUntil(promise) : undefined,
+    });
+  } catch (error) {
+    console.error(`[menu] could not load "${group.slug}"`, error);
+    failed = true;
+    Astro.response.status = 503;
+    Astro.response.headers.set('Retry-After', '60');
+  }
+}
+
+const groupNav = buildGroupNav(GROUPS, group?.slug);
+const categoryNav = buildNav(categories);
+---
+
+{
+  !group ? (
+    <NotFoundPage />
+  ) : (
+    <Base title={`${group.title} | Bella Vista café & resto`} description={group.description}>
+      <SiteHeader variant="compact" />
+      <GroupNav entries={groupNav} />
+      {categories.length > 1 && <CategoryNav entries={categoryNav} />}
+      <main id="carta" tabindex="-1" style={categories.length > 1 ? undefined : '--chips-h: 0rem'}>
+        <div class="hero">
+          <h1 class="hero__title">{group.title}</h1>
+          <p class="hero__tagline">{group.tagline}</p>
+        </div>
+        {
+          failed ? (
+            <StatusMessage title="No pudimos cargar esta sección">
+              Estamos teniendo un inconveniente para mostrar los platos. Vuelve a intentarlo en unos minutos o consúltanos
+              por WhatsApp.
+            </StatusMessage>
+          ) : categories.length === 0 ? (
+            <StatusMessage title="Esta sección no está disponible por ahora" actionHref="/" actionLabel="Volver al inicio">
+              Estamos actualizando los platos. Vuelve a intentarlo en unos minutos o consúltanos por WhatsApp.
+            </StatusMessage>
+          ) : (
+            categories.map((category, index) => (
+              <CategorySection category={category} id={categoryNav[index].id} index={index} />
+            ))
+          )
+        }
+      </main>
+      <SiteFooter />
+    </Base>
+  )
+}
+
+<style>
+  main {
+    padding: 1.25rem var(--gutter) 0;
+    outline: none;
+  }
+
+  .hero {
+    margin-bottom: 1.75rem;
+    text-align: center;
+  }
+
+  .hero__title {
+    font-family: var(--font-script);
+    font-size: 3.4rem;
+    font-weight: 400;
+    line-height: 1.1;
+    color: var(--forest-deep);
+  }
+
+  .hero__tagline {
+    margin-top: 0.1rem;
+    font-family: var(--font-ui);
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--graphite);
+  }
+
+  main > :global(.category + .category) {
+    margin-top: 3rem;
+  }
+</style>

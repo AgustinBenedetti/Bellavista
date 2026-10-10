@@ -1,0 +1,57 @@
+---
+// Circular wordmark. Only spans (valid inside <h1>); the accessible name is set by the parent.
+interface Props {
+  size?: 'lg' | 'sm';
+}
+const { size = 'lg' } = Astro.props;
+---
+
+<span class="logo" data-size={size}>
+  <span class="logo__name"><b>BELLA</b>VISTA</span>
+  <span class="logo__sub">cafe&amp;resto</span>
+</span>
+
+<style>
+  .logo {
+    display: inline-grid;
+    place-content: center;
+    gap: 0.1rem;
+    width: 11rem;
+    aspect-ratio: 1;
+    text-align: center;
+    border: 2px solid var(--ink);
+    border-radius: 50%;
+    background: var(--paper);
+    font-family: var(--font-ui);
+    color: var(--ink);
+  }
+
+  .logo__name {
+    font-size: 1.4rem;
+    font-weight: 300;
+    letter-spacing: 0.01em;
+    line-height: 1.1;
+  }
+
+  .logo__name b {
+    font-weight: 800;
+  }
+
+  .logo__sub {
+    font-size: 0.95rem;
+    font-weight: 600;
+    line-height: 1.1;
+  }
+
+  [data-size='sm'] {
+    width: 8.5rem;
+  }
+
+  [data-size='sm'] .logo__name {
+    font-size: 1.1rem;
+  }
+
+  [data-size='sm'] .logo__sub {
+    font-size: 0.8rem;
+  }
+</style>

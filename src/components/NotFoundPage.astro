@@ -1,0 +1,27 @@
+---
+import Base from '../layouts/Base.astro';
+import { GROUPS } from '../lib/menu';
+import { buildGroupNav } from '../lib/site';
+import GroupNav from './GroupNav.astro';
+import SiteFooter from './SiteFooter.astro';
+import SiteHeader from './SiteHeader.astro';
+import StatusMessage from './StatusMessage.astro';
+---
+
+<Base title="Página no encontrada | Bella Vista café & resto" description="Esta página de la carta no existe.">
+  <SiteHeader variant="compact" />
+  <GroupNav entries={buildGroupNav(GROUPS, undefined)} />
+  <main id="carta" tabindex="-1">
+    <StatusMessage title="No encontramos esa página" actionHref="/" actionLabel="Volver a la carta">
+      El enlace puede estar mal escrito o la sección ya no existe. Elige una sección en el menú de arriba o vuelve al inicio.
+    </StatusMessage>
+  </main>
+  <SiteFooter />
+</Base>
+
+<style>
+  main {
+    padding: 1.5rem var(--gutter) 0;
+    outline: none;
+  }
+</style>

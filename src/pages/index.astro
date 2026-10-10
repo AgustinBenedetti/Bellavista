@@ -1,0 +1,173 @@
+---
+import SiteFooter from '../components/SiteFooter.astro';
+import SiteHeader from '../components/SiteHeader.astro';
+import Base from '../layouts/Base.astro';
+import { GROUPS } from '../lib/menu';
+
+// The landing never reads the Google Sheet: it only links to the group pages, which do.
+const CARD_TONES = ['sage', 'periwinkle', 'tape', 'mint'] as const;
+---
+
+<Base
+  title="Carta | Bella Vista café & resto"
+  description="Carta de Bella Vista café & resto: desayunos y café, comidas, postres y tortas, y bebidas."
+>
+  <SiteHeader />
+  <main id="carta" tabindex="-1">
+    <h2 class="sr-only">Secciones de la carta</h2>
+    <ul class="cards">
+      {
+        GROUPS.map((group, index) => (
+          <li>
+            <a class="card" href={`/${group.slug}`} data-tone={CARD_TONES[index % CARD_TONES.length]}>
+              <span class="card__title">{group.title}</span>
+              <span class="card__tagline">{group.tagline}</span>
+              <span class="card__go" aria-hidden="true">
+                Ver carta
+                <svg viewBox="0 0 24 24" width="18" height="18" focusable="false">
+                  <path d="M4 12h15M13 6l6 6-6 6" />
+                </svg>
+              </span>
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </main>
+  <SiteFooter />
+</Base>
+
+<style>
+  main {
+    padding: 1.75rem var(--gutter) 0;
+    outline: none;
+  }
+
+  .cards {
+    display: grid;
+    gap: 1.1rem;
+  }
+
+  .card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.2rem;
+    min-height: 8.5rem;
+    padding: 1.25rem 1.4rem;
+    overflow: hidden;
+    border: 2.5px solid var(--ink);
+    background: var(--tone, var(--sage));
+    color: var(--ink);
+    text-decoration: none;
+    box-shadow: 5px 5px 0 var(--ink);
+    transition: transform 0.12s ease, box-shadow 0.12s ease;
+  }
+
+  /* Washi tape on the corner and a thin inner frame, echoing the paper menu. */
+  .card::before {
+    content: '';
+    position: absolute;
+    top: 0.35rem;
+    right: -1.6rem;
+    width: 6rem;
+    height: 1.5rem;
+    background:
+      repeating-linear-gradient(90deg, transparent 0 6px, rgb(255 255 255 / 0.22) 6px 7px),
+      rgb(169 189 232 / 0.92);
+    transform: rotate(38deg);
+    pointer-events: none;
+  }
+
+  .card::after {
+    content: '';
+    position: absolute;
+    inset: 0.4rem;
+    border: 1.5px dashed rgb(17 17 17 / 0.45);
+    pointer-events: none;
+  }
+
+  .card[data-tone='sage'] {
+    --tone: var(--sage);
+  }
+
+  .card[data-tone='periwinkle'] {
+    --tone: var(--periwinkle);
+  }
+
+  .card[data-tone='tape'] {
+    --tone: var(--tape);
+  }
+
+  .card[data-tone='mint'] {
+    --tone: var(--mint);
+  }
+
+  .card:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 7px 7px 0 var(--ink);
+  }
+
+  .card:active {
+    transform: translate(3px, 3px);
+    box-shadow: 2px 2px 0 var(--ink);
+  }
+
+  .card__title {
+    position: relative;
+    z-index: 1;
+    font-family: var(--font-title);
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 1.15;
+  }
+
+  .card__tagline {
+    position: relative;
+    z-index: 1;
+    font-family: var(--font-script);
+    font-size: 1.7rem;
+    line-height: 1.2;
+    color: var(--forest-deep);
+  }
+
+  .card__go {
+    position: relative;
+    z-index: 1;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    margin-top: 0.4rem;
+    font-family: var(--font-ui);
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .card__go svg {
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  @media (min-width: 40rem) {
+    .cards {
+      grid-template-columns: 1fr 1fr;
+      gap: 1.4rem;
+    }
+
+    .card {
+      min-height: 11rem;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .card {
+      transition: none;
+    }
+  }
+</style>

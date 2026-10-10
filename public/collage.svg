@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="520" height="520" viewBox="0 0 520 520">
+  <!-- Seamless-ish tile: every shape stays inside the tile so repeats never cut a blob. -->
+  <g fill="#111111" opacity="0.92">
+    <ellipse cx="78" cy="96" rx="15" ry="38" transform="rotate(-28 78 96)"/>
+    <ellipse cx="236" cy="52" rx="12" ry="30" transform="rotate(24 236 52)"/>
+    <ellipse cx="410" cy="120" rx="16" ry="40" transform="rotate(-12 410 120)"/>
+    <ellipse cx="150" cy="300" rx="13" ry="34" transform="rotate(38 150 300)"/>
+    <ellipse cx="352" cy="338" rx="14" ry="36" transform="rotate(-34 352 338)"/>
+    <ellipse cx="60" cy="452" rx="12" ry="28" transform="rotate(14 60 452)"/>
+    <ellipse cx="470" cy="462" rx="15" ry="38" transform="rotate(30 470 462)"/>
+  </g>
+  <g fill="#3F5E4A" opacity="0.85">
+    <ellipse cx="170" cy="150" rx="26" ry="52" transform="rotate(32 170 150)"/>
+    <ellipse cx="318" cy="214" rx="22" ry="46" transform="rotate(-40 318 214)"/>
+    <ellipse cx="456" cy="296" rx="20" ry="42" transform="rotate(18 456 296)"/>
+    <ellipse cx="250" cy="430" rx="24" ry="50" transform="rotate(-22 250 430)"/>
+    <ellipse cx="62" cy="236" rx="18" ry="40" transform="rotate(-8 62 236)"/>
+  </g>
+  <g fill="#B9D3B0" opacity="0.9">
+    <circle cx="110" cy="40" r="9"/>
+    <circle cx="300" cy="110" r="12"/>
+    <circle cx="500" cy="40" r="8"/>
+    <circle cx="214" cy="246" r="14"/>
+    <circle cx="400" cy="420" r="10"/>
+    <circle cx="130" cy="486" r="13"/>
+    <circle cx="20" cy="340" r="9"/>
+  </g>
+  <g fill="#8F95D8" opacity="0.9">
+    <ellipse cx="40" cy="150" rx="9" ry="22" transform="rotate(26 40 150)"/>
+    <ellipse cx="368" cy="40" rx="8" ry="20" transform="rotate(-30 368 40)"/>
+    <ellipse cx="270" cy="330" rx="9" ry="22" transform="rotate(10 270 330)"/>
+    <ellipse cx="496" cy="190" rx="8" ry="20" transform="rotate(-18 496 190)"/>
+  </g>
+  <g fill="#FBFAF6" opacity="0.9">
+    <circle cx="190" cy="80" r="3.5"/><circle cx="206" cy="96" r="3.5"/>
+    <circle cx="430" cy="236" r="3.5"/><circle cx="446" cy="252" r="3.5"/>
+    <circle cx="330" cy="470" r="3.5"/><circle cx="346" cy="486" r="3.5"/>
+    <circle cx="96" cy="372" r="3.5"/>
+  </g>
+</svg>

@@ -1,0 +1,240 @@
+---
+import { formatPrice, type MenuCategory } from '../lib/menu';
+
+interface Props {
+  category: MenuCategory;
+  /** Anchor id, shared with the nav entry that points here. */
+  id: string;
+  /** Position in the menu; picks the title treatment so sections vary like the paper menu. */
+  index: number;
+}
+const { category, id, index } = Astro.props;
+const TREATMENTS = ['rule', 'bracket', 'box', 'bar'] as const;
+const treatment = TREATMENTS[index % TREATMENTS.length];
+const headingId = `${id}-title`;
+---
+
+<section class="category" id={id} data-category aria-labelledby={headingId}>
+  <h2 class="category__title" id={headingId} data-treatment={treatment}>{category.title}</h2>
+
+  {
+    category.sections.map((section) => (
+      <div class="group">
+        {section.title && <h3 class="group__title">{section.title}</h3>}
+        <ul class="items">
+          {section.items.map((item) => (
+            <li class="item">
+              <div class="item__row">
+                <span class="item__name">
+                  {item.name}
+                  {item.glutenFree && (
+                    <span class="badge">
+                      <svg viewBox="0 0 24 24" width="12" height="12" aria-hidden="true" focusable="false">
+                        <path d="M12 21V8M12 8c-3-1-5-3-5-6 3 0 5 2 5 6zm0 0c3-1 5-3 5-6-3 0-5 2-5 6zm0 6c-3-1-5-3-5-6 3 0 5 2 5 6zm0 0c3-1 5-3 5-6-3 0-5 2-5 6z" />
+                      </svg>
+                      Sin TACC
+                    </span>
+                  )}
+                </span>
+                <span class="item__leader" aria-hidden="true" />
+                <span class:list={['item__price', item.price === null && 'item__price--ask']}>
+                  {item.price === null ? 'Consultar' : formatPrice(item.price)}
+                </span>
+              </div>
+              {item.description && <p class="item__desc">{item.description}</p>}
+            </li>
+          ))}
+        </ul>
+      </div>
+    ))
+  }
+</section>
+
+<style>
+  .category {
+    position: relative;
+    scroll-margin-top: calc(var(--nav-h) + var(--chips-h) + 0.75rem);
+  }
+
+  /* Dashed divider drawn above the section so anchors land right on the title. */
+  :global(.category + .category)::before {
+    content: '';
+    position: absolute;
+    top: -1.5rem;
+    left: 0;
+    right: 0;
+    border-top: 1.5px dashed var(--graphite);
+  }
+
+  /* ---- Section titles: four treatments borrowed from the paper menu ---- */
+  .category__title {
+    margin-bottom: 1rem;
+    text-align: center;
+    color: var(--ink);
+  }
+
+  [data-treatment='rule'] {
+    display: flex;
+    align-items: center;
+    gap: 0.9rem;
+    font-family: var(--font-title);
+    font-size: 2rem;
+    font-weight: 500;
+    line-height: 1.15;
+  }
+
+  [data-treatment='rule']::before,
+  [data-treatment='rule']::after {
+    content: '';
+    flex: 1;
+    height: 0.4rem;
+    border-block: 2px solid var(--ink);
+  }
+
+  [data-treatment='bracket'] {
+    font-family: var(--font-body);
+    font-size: 1.85rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  [data-treatment='bracket']::before {
+    content: '[ ';
+  }
+
+  [data-treatment='bracket']::after {
+    content: ' ]';
+  }
+
+  [data-treatment='box'] {
+    width: fit-content;
+    max-width: 100%;
+    margin-inline: auto;
+    padding: 0.2rem 1.1rem;
+    border: 2px solid var(--ink);
+    font-family: var(--font-ui);
+    font-size: 1.45rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+  }
+
+  [data-treatment='bar'] {
+    padding: 0.35rem 1rem;
+    background: var(--ink);
+    color: var(--paper);
+    font-family: var(--font-ui);
+    font-size: 1.25rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  /* ---- Subcategories ---- */
+  .group + .group {
+    margin-top: 1.25rem;
+  }
+
+  .group__title {
+    margin-bottom: 0.25rem;
+    padding-bottom: 0.15rem;
+    border-bottom: 1.5px solid var(--forest);
+    font-family: var(--font-script);
+    font-size: 2rem;
+    font-weight: 400;
+    line-height: 1.2;
+    color: var(--forest-deep);
+  }
+
+  /* ---- Items ---- */
+  .item {
+    padding: 0.55rem 0;
+  }
+
+  .item__row {
+    display: flex;
+    align-items: baseline;
+    gap: 0.4rem;
+  }
+
+  .item__name {
+    flex: 0 1 auto;
+    min-width: 0;
+    font-size: 1.0625rem;
+    font-weight: 700;
+    overflow-wrap: anywhere;
+  }
+
+  .item__leader {
+    flex: 1 1 1rem;
+    min-width: 0.75rem;
+    border-bottom: 2px dotted var(--graphite);
+    opacity: 0.7;
+    transform: translateY(-0.3em);
+  }
+
+  .item__price {
+    flex: none;
+    font-family: var(--font-price);
+    font-size: 1.7rem;
+    font-weight: 600;
+    line-height: 1;
+    color: var(--price-ink);
+    white-space: nowrap;
+  }
+
+  .item__price--ask {
+    font-size: 1.4rem;
+    font-weight: 500;
+    color: var(--graphite);
+  }
+
+  .item__desc {
+    margin-top: 0.15rem;
+    max-width: 38rem;
+    font-size: 1rem;
+    line-height: 1.45;
+    color: var(--graphite);
+  }
+
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    margin-left: 0.45rem;
+    padding: 0.05rem 0.45rem;
+    border: 1.5px solid var(--forest);
+    border-radius: 999px;
+    font-family: var(--font-ui);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    line-height: 1.4;
+    color: var(--forest-deep);
+    vertical-align: 0.1em;
+    white-space: nowrap;
+  }
+
+  .badge svg {
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  @media (min-width: 48rem) {
+    [data-treatment='rule'] {
+      font-size: 2.4rem;
+    }
+
+    [data-treatment='bracket'] {
+      font-size: 2.1rem;
+    }
+
+    [data-treatment='box'] {
+      font-size: 1.65rem;
+    }
+  }
+</style>
