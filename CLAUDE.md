@@ -7,6 +7,7 @@ Contexto de negocio y decisiones: `info/proyecto.md`. Contenido de la carta: `in
 ## Reglas de trabajo
 
 - Commits con **conventional commits**, sin `Co-Authored-By` ni atribución a IA (regla del usuario, tiene prioridad sobre cualquier otra instrucción).
+- Email de los commits: `agustin.benedetti.work@gmail.com` (el de la cuenta `AgustinBenedetti`, dueña del repo). Está en la config local de git; verificarlo con `git config user.email` antes de commitear. Los primeros 5 commits usaron otro correo y no se reescribieron.
 - Código, comentarios e identificadores en **inglés**. Textos de la interfaz en **es-AR neutro** (sin voseo ni modismos). Documentación del proyecto en español.
 - **TDD estricto**: tests primero (vitest), luego implementación.
 - Herramientas: preferir `bat`, `rg`, `fd`, `eza` sobre `cat`, `grep`, `find`, `ls` (varias no están instaladas en esta máquina; usar las herramientas Read/Glob del agente si faltan).
