@@ -1,0 +1,18 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "bellavista-menu",
+  "main": "@astrojs/cloudflare/entrypoints/server",
+  "compatibility_date": "2026-09-25",
+  "compatibility_flags": ["nodejs_compat", "global_fetch_strictly_public"],
+  "observability": { "enabled": true },
+  // Not secrets: the sheet only needs "anyone with the link can view".
+  // Leave SHEET_ID empty to use the bundled csv/ files in local dev.
+  "vars": {
+    "SHEET_ID": "",
+    "CACHE_TTL_SECONDS": "300",
+    // Footer links. Leave empty to hide them; set full https:// URLs to show them.
+    // The venue has no Instagram account yet, so its icon stays hidden until this is set.
+    "INSTAGRAM_URL": "",
+    "MAPS_URL": "https://maps.app.goo.gl/opYPXY3vWRQANcw18"
+  }
+}
