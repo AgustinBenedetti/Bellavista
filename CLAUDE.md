@@ -98,7 +98,7 @@ Seguimiento de lo hecho. Agregar una línea por cambio relevante.
 - [x] Carta dividida en páginas por grupo (`/desayunos`, `/comidas`, `/postres`, `/bebidas`) con portada en `/`, footer solo con íconos y carga de pestañas por subconjunto. 105 tests, `astro check` y build en verde.
 - [x] `referencia/` (PDF y fotos) movida fuera del repo a `../referencia/`.
 - [ ] 4. Deploy a Cloudflare (requiere `wrangler login`).
-- [ ] Repositorio en GitHub y primer push.
+- [x] Repositorio en GitHub (`AgustinBenedetti/Bellavista`, público) y primer push a `main`.
 
 ## Pendientes
 
