@@ -98,7 +98,7 @@ Seguimiento de lo hecho. Agregar una línea por cambio relevante.
 - [x] Carta dividida en páginas por grupo (`/desayunos`, `/comidas`, `/postres`, `/bebidas`) con portada en `/`, footer solo con íconos y carga de pestañas por subconjunto. 105 tests, `astro check` y build en verde.
 - [x] `referencia/` (PDF y fotos) movida fuera del repo a `../referencia/`.
 - [x] Instagram del local (`@bella_vista_caferesto`) agregado al footer y `SHEET_ID` fijado en `wrangler.jsonc` para producción.
-- [ ] 4. Deploy a Cloudflare (requiere `wrangler login`).
+- [ ] 4. Deploy a Cloudflare (requiere `wrangler login`). **Próxima sesión.** Plan: `! npx wrangler login`, `npm run build`, deploy con wrangler, y probar en vivo la lectura de la planilla, la caché y que un cambio de precio en la planilla se refleje. Todo está listo y subido a `main`; el deploy crea un Worker nuevo (`bellavista-menu`) en la cuenta, así que confirmar antes de ejecutarlo.
 - [x] Repositorio en GitHub (`AgustinBenedetti/Bellavista`, público) y primer push a `main`.
 
 ## Pendientes
