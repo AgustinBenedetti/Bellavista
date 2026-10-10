@@ -1,0 +1,6 @@
+nombre,descripcion,precio,disponible,sin_tacc,subcategoria
+Tarta de jamón y queso,,13000,TRUE,FALSE,
+Tarta de zapallito,,13000,TRUE,FALSE,
+Tarta de pollo y salsa blanca,,16000,TRUE,FALSE,
+Tortilla clásica,"papa, huevo, jamón y muzza. Opcional cebolla",17000,TRUE,FALSE,
+Tortilla completa,"papa, panceta, cheddar, muzza. Opcional cebolla, jamón",18000,TRUE,FALSE,

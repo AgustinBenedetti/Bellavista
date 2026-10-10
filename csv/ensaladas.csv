@@ -1,0 +1,11 @@
+nombre,descripcion,precio,disponible,sin_tacc,subcategoria
+César,"Pollo, hojas verdes, escamas de parmesano, croutons y aderezo césar",16000,TRUE,FALSE,
+Caprese,"Tomates, hojas de albahaca, queso mozzarella y aceite de oliva",14000,TRUE,FALSE,
+De la huerta,"Variedad de hojas verdes, tomate, choclo, remolacha, zanahoria y huevo",14000,TRUE,FALSE,
+Kanicama,"Lechuga, kanicama, tomate natural, choclo, queso, huevo y semillas de sésamo",17000,TRUE,FALSE,
+Atún,"Lechuga, rúcula, tomates cherrys, olivas verdes, atún, queso, croutons",19000,TRUE,FALSE,
+Serrana,"Jamón crudo, tomates, nueces, croutons, queso crema, hojas verdes",18000,TRUE,FALSE,
+Chía,"Tomate deshidratado, rúcula, zanahoria, pollo, huevo, semillas de chía",16000,TRUE,FALSE,
+Tropical,"Remolacha, choclo, tomate, queso, palmito",16000,TRUE,FALSE,
+De pera,"Rúcula, roquefort, parmesano y peras tibias caramelizadas",17000,TRUE,FALSE,
+Palta,"Hojas verdes, cherry, palta, queso, huevo y queso crema",17000,TRUE,FALSE,

@@ -1,0 +1,5 @@
+nombre,descripcion,precio,disponible,sin_tacc,subcategoria
+Vino tinto,Consultar bodegas,,TRUE,FALSE,
+Vino blanco,Consultar bodegas,,TRUE,FALSE,
+Champagne,,,TRUE,FALSE,
+Vinos 3/8,,,TRUE,FALSE,

@@ -1,0 +1,12 @@
+nombre,descripcion,precio,disponible,sin_tacc,subcategoria
+Mozzarella,,16000,TRUE,FALSE,
+Con jamón,,18000,TRUE,FALSE,
+Napolitana,,18000,TRUE,FALSE,
+Crudo y rúcula,,20000,TRUE,FALSE,
+"Cebolla de verdeo, champiñones y escamas de parmesano",,20000,TRUE,FALSE,
+Panceta y huevo frito,,19000,TRUE,FALSE,
+Con ananá,,23000,TRUE,FALSE,
+Con anchoas,,18000,TRUE,FALSE,
+Con roquefort,,18000,TRUE,FALSE,
+Fugazzeta,,17000,TRUE,FALSE,
+Pizzas sin TACC,Consultar precio,,TRUE,FALSE,

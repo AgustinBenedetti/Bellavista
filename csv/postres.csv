@@ -1,0 +1,10 @@
+nombre,descripcion,precio,disponible,sin_tacc,subcategoria
+Helado x bocha,"Crema americana, chocolate, dulce de leche y frutilla",2500,TRUE,FALSE,
+Copa helada de frutillas,"Colchón de frutillas, bocha de americana, bocha de frutillas y crema chantilly",8000,TRUE,FALSE,
+Copa helada de chocolate,"Bocha de americana, bocha de chocolate, chips de chocolate, salsa de chocolate y nueces",8000,TRUE,FALSE,
+Copa helada de dulce de leche,"Bocha de americana, bocha de dulce de leche, cucharón de dulce de leche y salsa de dulce de leche",8000,TRUE,FALSE,
+Frutillas con crema,,8000,TRUE,FALSE,
+Duraznos en almíbar,,4500,TRUE,FALSE,
+Dulce de batata/membrillo con queso,,5000,TRUE,FALSE,
+Ensalada de fruta,,6000,TRUE,FALSE,
+Flan,,5000,TRUE,FALSE,

@@ -1,0 +1,18 @@
+nombre,descripcion,precio,disponible,sin_tacc,subcategoria
+Stella Artois 710 cm³,,7500,TRUE,FALSE,En botella
+Budweiser 710 cm³,,7000,TRUE,FALSE,En botella
+Patagonia Bohemian,,8000,TRUE,FALSE,En botella
+Patagonia Amber,,8000,TRUE,FALSE,En botella
+Patagonia 24.7,,8000,TRUE,FALSE,En botella
+Patagonia IPA Vera,,8000,TRUE,FALSE,En botella
+Corona 710 cm³,,8000,TRUE,FALSE,En botella
+Andes Rubia,,4000,TRUE,FALSE,En lata
+Andes IPA,,4000,TRUE,FALSE,En lata
+Andes Roja,,4000,TRUE,FALSE,En lata
+Andes Negra,,4000,TRUE,FALSE,En lata
+Stella Artois,,4500,TRUE,FALSE,En lata
+Patagonia Bohemian,,4500,TRUE,FALSE,En lata
+Patagonia Amber,,4500,TRUE,FALSE,En lata
+Patagonia 24.7,,4500,TRUE,FALSE,En lata
+Patagonia IPA Vera,,4500,TRUE,FALSE,En lata
+Budweiser,,4000,TRUE,FALSE,En lata

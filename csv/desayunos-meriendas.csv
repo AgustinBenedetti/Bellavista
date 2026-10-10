@@ -1,0 +1,6 @@
+nombre,descripcion,precio,disponible,sin_tacc,subcategoria
+Tradicional,Café con leche/té con tres medialunas.,6000,TRUE,FALSE,
+De campo,"Café con leche/té con tostadas, manteca, dulce de leche y mermelada.",7000,TRUE,FALSE,
+Porteño,Café con leche/té con tostado de jamón y queso.,11500,TRUE,FALSE,
+Entrerriano,Café con leche/té con dos medialunas rellenas de jamón y queso.,8500,TRUE,FALSE,
+Buen día,Café con leche con dos tostadas de pan lactal con huevo revuelto y palta.,12000,TRUE,FALSE,

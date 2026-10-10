@@ -1,0 +1,14 @@
+nombre,descripcion,precio,disponible,sin_tacc,subcategoria
+Pini,"Burger, queso, tomate y huevo",16000,TRUE,FALSE,Burgers
+Amanda,"Burger, champiñones, cebolla morada, queso y tomate",16000,TRUE,FALSE,Burgers
+Luz,"Burger, chédar, bacon, lechuga y tomate",16000,TRUE,FALSE,Burgers
+Rita,"Burger, lechuga, tomate, huevo, cebolla caramelizada",16000,TRUE,FALSE,Burgers
+Facu,"Burger, cheddar, bacon y huevo",16000,TRUE,FALSE,Burgers
+Zampa,"Burger, chédar, tomate, cebolla y huevo a la plancha",16000,TRUE,FALSE,Burgers
+Papas fritas,,7500,TRUE,FALSE,Para acompañar (porción)
+Papas fritas con salsa chédar,,8500,TRUE,FALSE,Para acompañar (porción)
+"Papas fritas con cheddar, verdeo y panceta",,12000,TRUE,FALSE,Para acompañar (porción)
+Papas rejillas,,8500,TRUE,FALSE,Para acompañar (porción)
+Revuelto de gramajo,,9500,TRUE,FALSE,Para acompañar (porción)
+Rabas,,14000,TRUE,FALSE,Para acompañar (porción)
+Empanadas c/una,,2800,TRUE,FALSE,Para acompañar (porción)

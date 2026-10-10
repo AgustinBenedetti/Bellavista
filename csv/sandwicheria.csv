@@ -1,0 +1,18 @@
+nombre,descripcion,precio,disponible,sin_tacc,subcategoria
+Triple de miga con jamón y queso,,8000,TRUE,FALSE,Tostados
+Triple de miga con crudo y queso,,10000,TRUE,FALSE,Tostados
+De jamón cocido y queso,,6500,TRUE,FALSE,Tostados
+De salame y queso,,6000,TRUE,FALSE,Tostados
+De lomo ahumado y queso,,7500,TRUE,FALSE,Tostados
+De jamón crudo y queso,,8000,TRUE,FALSE,Tostados
+De bondiola y queso,,7500,TRUE,FALSE,Tostados
+Ana,"Pollo, queso en hebras, rúcula, salsa césar",15000,TRUE,FALSE,Sándwiches fríos
+Marcelo,"Pollo, lechuga, huevo duro, mayonesa",15000,TRUE,FALSE,Sándwiches fríos
+Lucho,"Jamón serrano, queso crema, tomate seco y rúcula",12000,TRUE,FALSE,Sándwiches fríos
+Martín,"Lomo, jamón, queso, lechuga y tomate",17000,TRUE,FALSE,Sándwiches calientes
+Francisco,"Lomo, queso, tomate y cebolla caramelizada",17000,TRUE,FALSE,Sándwiches calientes
+Javier,"Lomo, lechuga, tomate, queso y huevo a la plancha",17000,TRUE,FALSE,Sándwiches calientes
+Diego,"Lomo, queso, morrones dulces, bacon",17000,TRUE,FALSE,Sándwiches calientes
+Chipi,Pollo con queso y tomate,15000,TRUE,FALSE,Sándwiches calientes
+Leo,Pollo con rúcula y tomates secos,15000,TRUE,FALSE,Sándwiches calientes
+Juan,Pollo con cheddar y lechuga,15000,TRUE,FALSE,Sándwiches calientes

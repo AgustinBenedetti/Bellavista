@@ -1,0 +1,32 @@
+nombre,descripcion,precio,disponible,sin_tacc,subcategoria
+Sola,,14000,TRUE,FALSE,Milanesas y supremas
+Con dos huevos fritos,,15000,TRUE,FALSE,Milanesas y supremas
+Napolitana,,17000,TRUE,FALSE,Milanesas y supremas
+Caprese,,17000,TRUE,FALSE,Milanesas y supremas
+Con jamón y morrones,,17000,TRUE,FALSE,Milanesas y supremas
+Bife de cuadril,,17000,TRUE,FALSE,Milanesas y supremas
+Pechuga de pollo grillada,,14000,TRUE,FALSE,Milanesas y supremas
+Pechuga deshuesada a la pizza,,17000,TRUE,FALSE,Milanesas y supremas
+Pechuga deshuesada al verdeo,,17000,TRUE,FALSE,Milanesas y supremas
+Pechuga deshuesada al roquefort,,17000,TRUE,FALSE,Milanesas y supremas
+Pechuga deshuesada al champignon,,17000,TRUE,FALSE,Milanesas y supremas
+Puré,,3000,TRUE,FALSE,Para acompañar con
+Ensaladas,Hasta 2 ingredientes,3000,TRUE,FALSE,Para acompañar con
+Papas fritas,,3000,TRUE,FALSE,Para acompañar con
+Papas rejillas,,3500,TRUE,FALSE,Para acompañar con
+Papas con cheddar,,3500,TRUE,FALSE,Para acompañar con
+Ravioles de ricota o verdura,,15000,TRUE,FALSE,Pastas
+Tallarines,,8500,TRUE,FALSE,Pastas
+Ñoquis,,12000,TRUE,FALSE,Pastas
+Crema,,2000,TRUE,FALSE,Salsas
+Fileto,,2000,TRUE,FALSE,Salsas
+Bolognesa,,3000,TRUE,FALSE,Salsas
+Cuatro quesos,,3000,TRUE,FALSE,Salsas
+Salsa rosa,,3000,TRUE,FALSE,Salsas
+Hamburguesa con papas fritas,,12000,TRUE,FALSE,Menú kids
+Ravioles con salsa o crema,,12000,TRUE,FALSE,Menú kids
+Pechuga con cherry o puré,,12000,TRUE,FALSE,Menú kids
+Omelette de jamón y queso,,12000,TRUE,FALSE,Menú kids
+Nuggets de pollo con papas fritas,,12000,TRUE,FALSE,Menú kids
+Shot de frutillas con crema,,,TRUE,FALSE,Postre kids
+Banana con dulce de leche,,,TRUE,FALSE,Postre kids

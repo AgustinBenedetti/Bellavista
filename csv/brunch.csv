@@ -1,0 +1,7 @@
+nombre,descripcion,precio,disponible,sin_tacc,subcategoria
+Bella Vista,"Café con leche/té, mix de frutas, jugo de naranja exprimido, tostadas, queso crema y mermelada.",16000,TRUE,FALSE,
+Concepción,"Café con leche/té, tostadas, fetas de jamón y queso, huevo revuelto, jugo de naranja.",16000,TRUE,FALSE,
+Natural,"Bowl con yogur, cereales, mix de frutas, tostadas de pan negro, mermelada, jugo exprimido.",16000,TRUE,FALSE,
+Al paso,"Baguetín con jamón y queso (consultar por otros fiambres), jugo exprimido, café con leche, shot de chocotorta.",17000,TRUE,FALSE,
+Vegano,"Jugo exprimido, tostadas de pan del día, pasta de maní, mermelada, frutas de estación, mix de semillas (maní, maíz, zapallo, castañas).",16000,TRUE,FALSE,
+Verde,"Café con leche / té - Jugo exprimido con dos tostadas de pan lactal con queso crema, jamón crudo y palta.",18000,TRUE,FALSE,
